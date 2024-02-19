@@ -33,7 +33,6 @@ $games = [
     <title>Document</title>
 </head>
 <body>
-    <form action="meth"></form>
     <?php foreach ($games as $game): ?>
         <div>
             <?php echo $game['casa'] . ' - ' . $game['ospite'] . ' | ' . $game['punti_casa'] . '-' . $game['punti_ospite']; ?>
