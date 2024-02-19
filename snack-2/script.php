@@ -1,4 +1,12 @@
 <?php
+$name = $_GET['name'] ?? '';
+$mail = $_GET['mail'] ?? '';
+$age = $_GET['age'] ?? '';
+
+// Verifico lughezza 
+if( strlen($name) > 3 || < 10){
+    
+}
 
 ?>
 
