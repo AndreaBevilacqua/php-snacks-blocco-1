@@ -4,8 +4,18 @@ $mail = $_GET['mail'] ?? '';
 $age = $_GET['age'] ?? '';
 
 // Verifico lughezza 
-if( strlen($name) > 3 || < 10){
-    
+if(strlen($name) > 3){
+
+    // Verifica formato dell'email
+    if (filter_var($mail, FILTER_VALIDATE_EMAIL) && strpos($mail, '.') !== false && strpos($mail, '@') !== false) {
+
+        // Verifica se 'age' è un numero
+        if (is_numeric($age)) {
+            echo "Accesso riuscito";
+        }
+    }
+} else {
+    echo "Accesso negato";
 }
 
 ?>
