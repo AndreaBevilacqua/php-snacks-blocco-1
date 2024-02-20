@@ -3,32 +3,17 @@ $name = $_GET['name'] ?? '';
 $mail = $_GET['mail'] ?? '';
 $age = $_GET['age'] ?? '';
 
-// Verifico lughezza 
-if(strlen($name) > 3){
+// Validazione dei campi
 
-    // Verifica formato dell'email
-    if (filter_var($mail, FILTER_VALIDATE_EMAIL) && strpos($mail, '.') !== false && strpos($mail, '@') !== false) {
+$age_valid = is_numeric($age) && $age > 0:
+$name_valid = mb_strlen(trim($name)) > 3;
+$email_valid = str_contains($email, '@') && str_contains($email, '.') ;
 
-        // Verifica se 'age' è un numero
-        if (is_numeric($age)) {
-            echo "Accesso riuscito";
-        }
-    }
+$form_valid = !$age_valid || !$name_valid || !$email_valid;
+
+if($form_valid) {
+    echo 'Accesso negato';
 } else {
-    echo "Accesso negato";
+    echo 'Accesso riuscito';
 }
-
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
     
